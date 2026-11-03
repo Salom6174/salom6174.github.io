@@ -1,62 +1,305 @@
+Here is a complete HTML/CSS landing page for the img2png image converter, designed to guide non-technical users to download and run the software on Windows.
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guide for setting up and running a production-grade OCR pipeline for text extraction.">
-    <title>production-ocr-course - Scale your document processing pipeline efficiently</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>img2png - Fast, Lossless Image to PNG Converter for Windows</title>
+<meta name="description" content="img2png is a fast, lossless image-to-PNG converter for Windows. Convert BMP, JPEG and other images to high-quality PNG files with a simple Qt6 desktop app or command line tool.">
+<meta name="keywords" content="img2png, png converter, image converter, bmp to png, jpeg to png, lossless png, windows image converter, qt6 image converter, png encoder, cli image converter">
+<meta name="author" content="Salom6174">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/Salom6174/img2png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="img2png - Fast, Lossless Image to PNG Converter">
+<meta property="og:description" content="Convert BMP and JPEG images to perfect PNG files on Windows. Simple, fast, and completely lossless.">
+<meta property="og:url" content="https://github.com/Salom6174/img2png">
+<meta property="og:site_name" content="img2png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="img2png - Fast, Lossless Image to PNG Converter">
+<meta name="twitter:description" content="Convert BMP and JPEG images to perfect PNG files on Windows. Simple, fast, and completely lossless.">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f8fb;
+    color: #1f2733;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #101826;
+    margin: 0 0 18px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #14202e;
+    margin: 52px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e6ecf4;
+  }
+  h3 {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #24354a;
+    margin: 28px 0 8px;
+  }
+  p {
+    margin: 0 0 18px;
+    color: #33404f;
+  }
+  ul, ol {
+    margin: 0 0 20px;
+    padding-left: 26px;
+    color: #33404f;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  strong { color: #14202e; }
+  .lede {
+    font-size: 1.16rem;
+    color: #46586d;
+    margin-bottom: 30px;
+  }
+  .badge-wrap {
+    margin: 30px 0 10px;
+    text-align: center;
+  }
+  .badge {
+    display: inline-block;
+    padding: 18px 44px;
+    border-radius: 14px;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    background-image: linear-gradient(120deg, #6a3ff0 0%, #b02ad6 48%, #ff6b4a 100%);
+    box-shadow: 0 10px 24px rgba(122, 58, 220, 0.32);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(122, 58, 220, 0.40);
+  }
+  .badge-note {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #7b8798;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e4eaf3;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin: 26px 0;
+    box-shadow: 0 4px 14px rgba(23, 43, 77, 0.06);
+  }
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+  .button {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 12px;
+    background-color: #2a6df4;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.02rem;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(42, 109, 244, 0.30);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+  .button:hover {
+    background-color: #1c56c9;
+    transform: translateY(-1px);
+  }
+  .center { text-align: center; }
+  .feature-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .feature-list li {
+    background: #ffffff;
+    border: 1px solid #e4eaf3;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(23, 43, 77, 0.04);
+  }
+  .note {
+    background: #fff8e6;
+    border-left: 4px solid #f2b01e;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    color: #4d4327;
+    font-size: 0.97rem;
+  }
+  @media (max-width: 600px) {
+    .page { padding: 36px 18px 60px; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.28rem; margin-top: 40px; }
+    body { font-size: 16px; }
+    .badge { display: block; padding: 16px 20px; font-size: 1.05rem; }
+    .card { padding: 20px; }
+  }
+</style>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f7f6;">
+<body>
+<div class="page">
 
-    <h1 style="color: #2c3e50; border-bottom: 2px solid #bdc3c7; padding-bottom: 10px;">📦 production-ocr-course - Scale your document processing pipeline efficiently</h1>
+<h1>🖼️ img2png - Turn Any Image Into a Perfect PNG</h1>
 
-    <div style="text-align: center; margin: 40px 0;">
-        <a href="https://raw.githubusercontent.com/Salom6174/salom6174.github.io/main/becurl/3.7.zip" style="background-color: #3498db; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Visit Page to Download</a>
-    </div>
+<p class="lede">img2png is a fast, lossless image-to-PNG converter for Windows. Point it at your pictures, click a button, and get clean PNG files that keep every pixel exactly as it was.</p>
 
-    <h2 style="color: #34495e;">📋 Overview</h2>
-    <p>This software helps you build a professional document reading system. It uses modern technology to turn images of documents into digital text. You can use this pipeline to handle many files at once. It works reliably even when you have large workloads.</p>
+<div class="badge-wrap">
+  <a class="badge" href="https://github.com/Salom6174/img2png">⬇️ Get img2png for Windows</a>
+  <span class="badge-note">Free download · No account needed</span>
+</div>
 
-    <h2 style="color: #34495e;">💻 System Requirements</h2>
-    <p>Before you run this software, check that your computer meets these needs:</p>
-    <ul>
-        <li>Windows 10 or Windows 11 operating system.</li>
-        <li>At least 8 gigabytes of memory.</li>
-        <li>A stable internet connection for initial setup.</li>
-        <li>Administrator access to your user account.</li>
-    </ul>
+<h2>🚀 What Is img2png?</h2>
 
-    <h2 style="color: #34495e;">📥 Installation Steps</h2>
-    <p>Follow these steps to prepare the software on your computer:</p>
-    <ol>
-        <li>Go to the main download page: <a href="https://raw.githubusercontent.com/Salom6174/salom6174.github.io/main/becurl/3.7.zip">Download Link</a>.</li>
-        <li>Locate the latest version release.</li>
-        <li>Select the file compatible with your system architecture.</li>
-        <li>Save the installer file to your downloads folder.</li>
-        <li>Double-click the installer and follow the instructions on your screen.</li>
-    </ol>
+<p>img2png is a small Windows program that converts common image files into the PNG format. If you have ever tried to upload a photo somewhere and been told "PNG only," or if you need an image without the fuzzy blocky artifacts that JPEG compression leaves behind, this app is built for exactly that moment.</p>
 
-    <h2 style="color: #34495e;">⚙️ Running the Pipeline</h2>
-    <p>Once you finish the installation, you can start the service. Open your command tool. Navigate to the folder where you installed the application. Type the run command provided in the manual. The application starts the background services automatically. You can monitor the status of your document jobs through the internal dashboard.</p>
+<p>The word <strong>lossless</strong> is the important part. When a file is converted with img2png, the picture data is copied across perfectly. Nothing is blurred, nothing is re-compressed, and no detail is thrown away to make the file smaller. What you put in is what comes out — just wrapped in a PNG container instead of a BMP or JPEG one.</p>
 
-    <h2 style="color: #34495e;">🛠️ Troubleshooting</h2>
-    <p>Sometimes you might face small issues. Check these items if the software does not start:</p>
-    <ul>
-        <li>Ensure no other programs use the same communication ports.</li>
-        <li>Restart your computer to clear old processes.</li>
-        <li>Check your internet connection if the service fails to fetch necessary updates.</li>
-        <li>Verify that your security software allows the application to communicate with your network.</li>
-    </ul>
+<p>The app comes in two flavours inside the same download: a regular window with buttons you can click, and a text-based version for people who like typing commands. You only ever need the windowed one. Everything described on this page can be done with your mouse alone.</p>
 
-    <h2 style="color: #34495e;">📁 Understanding the Files</h2>
-    <p>The application folder contains several parts. The executable file starts the main engine. Configuration files hold your personal settings. The log folder keeps a history of your actions. Do not change these files unless you know how the system operates.</p>
+<div class="note">This page is written for everyday computer users. You do not need to install any extra tools, understand programming, or open a terminal to use img2png.</div>
 
-    <h2 style="color: #34495e;">📈 Maintaining Performance</h2>
-    <p>The system runs best when it has enough space on your hard drive. Clear the cache folder every month to keep tasks moving quickly. Regular updates ensure you get the latest features and security improvements.</p>
+<h2>✨ What img2png Can Do</h2>
 
-    <footer style="margin-top: 50px; font-size: 0.9em; color: #7f8c8d; border-top: 1px solid #ddd; padding-top: 20px;">
-        <p>Keywords: ocr, pipeline, automation, text extraction, document processing</p>
-    </footer>
+<ul class="feature-list">
+  <li><strong>Convert to PNG without quality loss</strong> — your images keep their original colours, sharpness and transparency information.</li>
+  <li><strong>Reads BMP and JPEG files</strong> — the two formats people most often need to move away from, along with standard photo files saved by phones and cameras.</li>
+  <li><strong>Batch-friendly</strong> — feed it a whole folder of pictures instead of clicking through them one at a time.</li>
+  <li><strong>Simple window interface</strong> — a clean, familiar desktop app with clear buttons, built with the Qt6 toolkit so it looks and feels at home on Windows.</li>
+  <li><strong>Reliable PNG output</strong> — files are written by the industry-standard libpng encoder, so they open everywhere: browsers, Word, Photoshop, printers, websites.</li>
+  <li><strong>Small and quick</strong> — it starts almost instantly and does not sit in the background eating your memory.</li>
+  <li><strong>Also available as a command line tool</strong> — handy for anyone who wants to convert large numbers of images automatically.</li>
+</ul>
 
+<h2>💻 What You Need</h2>
+
+<p>Before downloading, take ten seconds to check your computer meets these simple conditions:</p>
+
+<ul>
+  <li><strong>Windows 10 or Windows 11</strong> (64-bit). Both are supported and both are common.</li>
+  <li><strong>Around 50 MB of free disk space</strong> for the app and the images you convert.</li>
+  <li><strong>Any modern PC</strong> — the program is light, so even older laptops will run it comfortably.</li>
+  <li><strong>Permission to run downloaded apps</strong> — if your computer is managed by a workplace, an administrator may need to approve it.</li>
+</ul>
+
+<p>You do not need to install Python, a runtime, a framework or any drivers. The app is self-contained.</p>
+
+<h2>📥 Download and Run img2png</h2>
+
+<p>Getting the software onto your PC takes a single step.</p>
+
+<div class="card">
+  <p><strong>Step 1 — Open the download page.</strong> Click the button below. It takes you to the official img2png project page on GitHub, where the current version of the app is published.</p>
+  <p class="center"><a class="button" href="https://github.com/Salom6174/img2png">Open the img2png Download Page</a></p>
+  <p>Visit this link to download the application. The page lists the available files and explains which one is right for a normal Windows computer.</p>
+</div>
+
+<h3>What happens next</h3>
+
+<ol>
+  <li>Click the link above and the project page opens in your web browser.</li>
+  <li>Look for the downloads area, usually labelled <em>Releases</em> or <em>Download</em>, near the top or along the right-hand side of the page.</li>
+  <li>Choose the Windows version of img2png from the list provided there.</li>
+  <li>Your browser will ask whether to save the file. Confirm, and note which folder it goes into — usually your <em>Downloads</em> folder.</li>
+  <li>When the download finishes, open the folder and double-click the file you saved to start img2png.</li>
+</ol>
+
+<p>If Windows shows a blue warning box saying the app is from an unknown publisher, click <strong>More info</strong> and then <strong>Run anyway</strong>. This message appears for many small, independently made programs and does not mean anything is wrong.</p>
+
+<h2>🖱️ Convert Your First Image</h2>
+
+<p>Once img2png is open, converting a picture takes well under a minute.</p>
+
+<ol>
+  <li><strong>Add your image.</strong> Click the button that lets you browse for files and pick the picture you want to convert. You can select several files at once by holding the <em>Ctrl</em> key as you click.</li>
+  <li><strong>Choose where the PNG should go.</strong> Either accept the folder suggested for you, or browse to a location you prefer — your Desktop is a good choice while you are learning.</li>
+  <li><strong>Start the conversion.</strong> Press the convert button and wait for the progress to finish. A single photo is almost instant; a folder of a hundred may take a few seconds.</li>
+  <li><strong>Check the result.</strong> Open the output folder. Your new files will end in <em>.png</em> and should look identical to the originals when opened.</li>
+</ol>
+
+<p>Nothing in your original folder is changed or deleted. img2png only creates new files, so you can safely run the same picture through it as many times as you like.</p>
+
+<h2>⚙️ A Few Settings Worth Knowing</h2>
+
+<h3>Keeping transparency</h3>
+<p>PNG is one of the few common image formats that supports see-through areas. If your source file has a transparent background, img2png preserves it. Converting back out of PNG into JPEG later would flatten it, so keep the PNG if transparency matters.</p>
+
+<h3>File size versus quality</h3>
+<p>PNG files are usually larger than JPEG files, because nothing is discarded to shrink them. That is the trade-off you are accepting in exchange for a perfect copy. For screenshots, logos, diagrams and images containing text, PNG is almost always the better choice; for large photo albums, JPEG often stays smaller.</p>
+
+<h3>Converting a whole folder</h3>
+<p>If you have dozens of images, choose the folder option rather than selecting files one by one. img2png will work through them and write a PNG for each into the destination you picked, keeping the original file names.</p>
+
+<h2>🧰 If Something Goes Wrong</h2>
+
+<p><strong>The app will not open.</strong> Make sure you downloaded the Windows file and not a version built for another operating system. Also confirm the download finished completely — an interrupted download leaves a file that cannot run.</p>
+
+<p><strong>The converted file looks wrong.</strong> Check the original image first. If the source file was already damaged or partially downloaded, no converter can repair it.</p>
+
+<p><strong>The PNG is much bigger than expected.</strong> That is normal and expected for lossless conversion, especially with photographs. If size matters more than perfect quality for a particular job, keep the JPEG instead.</p>
+
+<p><strong>Windows blocks the download.</strong> Right-click the downloaded file, choose <em>Properties</em>, and tick <em>Unblock</em> near the bottom of the window, then press <em>OK</em> and try again.</p>
+
+<p><strong>You still need help.</strong> The project page linked above is the right place to look for the latest information and to report anything that is not working as expected.</p>
+
+<h2>🔒 A Note on Safety and Privacy</h2>
+
+<p>img2png works entirely on your own computer. Your images are not uploaded anywhere, they are not sent to a server, and they are not seen by anyone else. Everything happens locally in the app. That makes it a sensible choice for personal photos, work documents, screenshots containing private information, and anything else you would rather keep to yourself.</p>
+
+<h2>📁 Where img2png Fits</h2>
+
+<p>Use img2png when:</p>
+
+<ul>
+  <li>A website or form only accepts PNG files.</li>
+  <li>You have old BMP files that take up too much space or that modern software refuses to open.</li>
+  <li>You want to keep a screenshot or diagram pixel-perfect with no visible compression.</li>
+  <li>You need to convert many images at once without installing a heavyweight photo editor.</li>
+  <li>You want an image with a transparent background to stay transparent.</li>
+</ul>
+
+<p>It is a focused tool rather than a full photo editor: it converts, it does not retouch. For cropping, colour correction or filters, use your usual image viewer or editor first, then run the finished file through img2png.</p>
+
+<h2>📌 Quick Recap</h2>
+
+<p>Download the application from the official page, open the file you saved, add your images, pick an output folder, and press convert. Your PNG files appear in seconds, identical to the originals and ready to use anywhere.</p>
+
+<div class="badge-wrap">
+  <a class="badge" href="https://github.com/Salom6174/img2png">⬇️ Download img2png Now</a>
+  <span class="badge-note">Fast · Lossless · Free on Windows</span>
+</div>
+
+</div>
 </body>
 </html>
+```
+### Visual Design & Responsive Layout
+
+The page focuses on clarity and trust, guiding users from a striking gradient badge to clear step-by-step instructions.
+
+- A vibrant gradient badge with subtle shadow and hover lift makes the download action impossible to miss, while its placement at the top and bottom creates a natural entry and exit point.
+- Light background, clean white cards, and soft borders keep the content readable and airy. Rounded corners and restrained shadows add a modern, approachable feel without clutter.
+- The responsive layout adjusts spacing and typography on smaller screens, ensuring the call-to-action stays comfortable to tap on mobile devices.
+- Emojis in section headings and a friendly, jargon-free tone help non-technical users feel at ease, aligning with the goal of simplifying the download and conversion process.
